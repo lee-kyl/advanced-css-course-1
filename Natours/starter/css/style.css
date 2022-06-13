@@ -17,36 +17,51 @@ html {
 
 /* Specify font in body instead setting it for every elements to utilise css cascading */
 body {
+  box-sizing: border-box; }
+
+@keyframes moveInLeft {
+  0% {
+    /* For browser performance, it's best to use only opacity and transform for creating an animation  */
+    opacity: 0;
+    /* start from the left of the current position */
+    transform: translateX(-10rem); }
+  80% {
+    /* shift to the right a bit */
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    /* finish at the current position */
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    /* For browser performance, it's best to use only opacity and transform for creating an animation  */
+    opacity: 0;
+    /* start from the right of the current position */
+    transform: translateX(10rem); }
+  80% {
+    /* shift to the left a bit */
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    /* finish at the current position */
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  position: relative;
-  height: 95vh;
-  /* Render a combination of 2 background images, a green background on top of an image */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  background-size: cover;
-  background-position: top;
-  /* creates a region that sets what part of an element should be displayed */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* Center an element to the middle of the screen */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: #fff;
@@ -112,38 +127,25 @@ body {
   /* apply the css props in 0% of the animation into the btn  */
   animation-fill-mode: backwards; }
 
-@keyframes moveInLeft {
-  0% {
-    /* For browser performance, it's best to use only opacity and transform for creating an animation  */
-    opacity: 0;
-    /* start from the left of the current position */
-    transform: translateX(-10rem); }
-  80% {
-    /* shift to the right a bit */
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    /* finish at the current position */
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    /* For browser performance, it's best to use only opacity and transform for creating an animation  */
-    opacity: 0;
-    /* start from the right of the current position */
-    transform: translateX(10rem); }
-  80% {
-    /* shift to the left a bit */
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    /* finish at the current position */
-    transform: translate(0); } }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.header {
+  position: relative;
+  height: 95vh;
+  /* Render a combination of 2 background images, a green background on top of an image */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  /* creates a region that sets what part of an element should be displayed */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Center an element to the middle of the screen */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }

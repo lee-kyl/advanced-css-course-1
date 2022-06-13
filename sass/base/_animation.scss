@@ -1,0 +1,51 @@
+@keyframes moveInLeft {
+  0% {
+    /* For browser performance, it's best to use only opacity and transform for creating an animation  */
+    opacity: 0;
+    /* start from the left of the current position */
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    /* shift to the right a bit */
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* finish at the current position */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    /* For browser performance, it's best to use only opacity and transform for creating an animation  */
+    opacity: 0;
+    /* start from the right of the current position */
+    transform: translateX(10rem);
+  }
+
+  80% {
+    /* shift to the left a bit */
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    /* finish at the current position */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

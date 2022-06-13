@@ -1,0 +1,24 @@
+/* Reset html elements */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  /* better practice to inherit the box-sizing prop from parent instead of declaring it directly */
+  box-sizing: inherit;
+}
+
+html {
+  /* 
+    16px * 62.5% = 10px
+    We want to keep the root font-size to percentage unit because that
+    can allow user to specify a custom default font-size for their user agent
+  */
+  font-size: 62.5%;
+}
+
+/* Specify font in body instead setting it for every elements to utilise css cascading */
+body {
+  box-sizing: border-box;
+}
