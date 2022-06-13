@@ -195,7 +195,7 @@ body {
 }
 
 .btn::after {
-  background-color: white;
+  background-color: $color-white;
 }
 
 .btn:hover::after {
