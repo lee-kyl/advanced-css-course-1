@@ -18,8 +18,5 @@
   "homepage": "https://github.com/lee-kyl/advanced-css-course-1#readme",
   "devDependencies": {
     "node-sass": "^7.0.1"
-  },
-  "dependencies": {
-    "live-server": "^1.2.2"
   }
 }
