@@ -1,11 +1,20 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+ 
 /* Reset html elements */
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
+
   /* better practice to inherit the box-sizing prop from parent instead of declaring it directly */
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 html {
   /* 
@@ -13,7 +22,8 @@ html {
     We want to keep the root font-size to percentage unit because that
     can allow user to specify a custom default font-size for their user agent
   */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 /* Specify font in body instead setting it for every elements to utilise css cascading */
 body {
@@ -21,27 +31,38 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
-  box-sizing: border-box; }
+
+  box-sizing: border-box;
+}
 
 .header {
   position: relative;
   height: 95vh;
   /* Render a combination of 2 background images, a green background on top of an image */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, .8),
+      rgba($color-primary-dark, .8)
+    ),
+    url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
+
   /* creates a region that sets what part of an element should be displayed */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
 
 .header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 /* Center an element to the middle of the screen */
 .header__text-box {
@@ -49,65 +70,88 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   margin-bottom: 6rem;
+
   /* Fix for the shaky behaviour created the animation  */
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+}
 
 .heading-primary--main {
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
   animation: moveInLeft 1s ease-out;
+
   /* Here's some useful properties. Have a play around them! */
   /* animation-iteration-count: 3; */
-  /* animation-delay: 3s; */ }
+  /* animation-delay: 3s; */
+}
 
 .heading-primary--sub {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.73rem;
-  animation: moveInRight 1s ease-out; }
+
+  animation: moveInRight 1s ease-out;
+}
 
 @keyframes moveInLeft {
   0% {
     /* For browser performance, it's best to use only opacity and transform for creating an animation  */
     opacity: 0;
     /* start from the left of the current position */
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   80% {
     /* shift to the right a bit */
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
+
   100% {
     opacity: 1;
     /* finish at the current position */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     /* For browser performance, it's best to use only opacity and transform for creating an animation  */
     opacity: 0;
     /* start from the right of the current position */
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   80% {
     /* shift to the left a bit */
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
+
   100% {
     opacity: 1;
     /* finish at the current position */
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 .btn:link,
 .btn:visited {
@@ -117,20 +161,25 @@ body {
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 10rem;
+
   /* short hand of animation. NOTE: the transition property has to be specified at the initial state */
-  transition: all .2s; }
+  transition: all .2s;
+}
 
 .btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
 
 .btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-grey-dark
+}
 
 .btn::after {
   position: absolute;
@@ -142,16 +191,20 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s; }
+  transition: all .4s;
+}
 
 .btn::after {
-  background-color: white; }
+  background-color: white;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+  opacity: 0;
+}
 
 .btn--animated {
   animation: moveInBottom .5s .75s ease-out;
   /* apply the css props in 0% of the animation into the btn  */
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
